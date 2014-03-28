@@ -27,4 +27,10 @@ class User < ActiveRecord::Base
     self.password == input_password
   end
 
+  def update_password(params)
+    if self.password == params[:old] && params[:new] == params[:repeat_new]
+      self.update_attributes(password_hash: Password.create(params[:new]))
+    end
+  end
+
 end
