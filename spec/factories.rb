@@ -1,5 +1,6 @@
 FactoryGirl.define do
   sequence(:title) { |n| "Fake title #{n}" }
+  sequence(:email) { |n| "#{Faker::Internet.email} #{n}" }
 
   factory :option do
     text Faker::Lorem.characters(char_count = 10)
@@ -27,7 +28,7 @@ FactoryGirl.define do
 
   factory :user do
     name Faker::Name.name
-    email Faker::Internet.email
+    email
     password '123456'
   end
 

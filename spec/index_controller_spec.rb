@@ -52,11 +52,11 @@ describe "IndexController" do
                    user_id: response.user_id,
                    option_id: response.option_id) }.to change(Response, :count).by(1)
     end
-    # it 'redirects to /survey'
-    #   expect{ post('/responses',
-    #          user_id: response.user_id,
-    #          option_id: response.option_id) }.to be_redirect
-    # end
+    it 'redirects to /survey' do
+      expect{ post('/responses',
+             user_id: response.user_id,
+             option_id: response.option_id) }.to be_redirect
+    end
   end
   
   describe "post to /surveys" do
