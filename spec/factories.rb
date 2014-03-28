@@ -19,6 +19,21 @@ FactoryGirl.define do
   
   factory :survey do
     title
+
+    factory :survey_with_questions do
+      ignore do
+        questions_count 3
+      end
+      after(:create) do |survey, evaluator|
+        create_list(:question, evaluator.questions_count, survey: survey)
+      end
+      factory :question_with_response do
+        after(:create) do |question, evaluator|
+          create_list(:response, 2, question: question)
+        end
+      end
+    end
+
   end
 
   factory :question do
@@ -34,6 +49,6 @@ FactoryGirl.define do
 
   factory :response do
     user
-    option_with_question
+    option
   end
 end
