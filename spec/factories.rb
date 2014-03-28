@@ -1,10 +1,12 @@
 FactoryGirl.define do
+  sequence(:title) { |n| "Fake title #{n}" }
+  
   factory :survey do
-    title Faker::Lorem.sentence(word_count = 5, random_words_to_add = 4)
+    title
   end
 
   factory :question do
-    prompt 'Fake question'
+    prompt Faker::Lorem.sentence(word_count = 5, random_words_to_add = 4)
     survey
   end
 
