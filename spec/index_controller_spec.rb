@@ -56,7 +56,6 @@ describe "IndexController" do
                      option_id: response.option_id,
                      question: question) }.to change(Response, :count).by(1)
       end
-    
     end
     
     describe "post to /surveys" do
