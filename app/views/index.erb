@@ -2,18 +2,20 @@
   <%=@error%>
 <%end%>
 <h1 id = 'header'>Glitter Space</h1>
-<form  action="/users/new" name="create_account" method="post">
-  Sign Up:&nbsp&nbsp
+<form action="/users/new" class="horiz" name="create_account" method="post">
+  <fieldset><legend>Sign Up</legend>
   <input type="text" placeholder="name" name="name">
   <input type="text" placeholder="email" name="email">
   <input type="password" placeholder="password" name="password_hash">
   <input type="submit" value="Go">
+</fieldset>
 </form>
 
 
-<form action="/sessions/new" name="login" method="post">
-  Log in
+<form action="/sessions/new" class="horiz" name="login" method="post">
+  <fieldset><legend>Log in</legend>
   <input type="text" placeholder="email" name="email">
   <input type="password" placeholder="password" name="password">
   <input type="submit" value="Login">
+  </fieldset>
 </form>

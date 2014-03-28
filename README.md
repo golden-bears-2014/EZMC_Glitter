@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 GlitterMonkeyCrew
 =================
 
@@ -27,5 +27,3 @@ Git Workflow:
 
 =======
 EZMC_Glitter
-============
->>>>>>> e859ce714f0a489e76228d46c6a3d3c33ecd3c0f
