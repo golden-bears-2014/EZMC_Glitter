@@ -45,13 +45,18 @@ describe "IndexController" do
   describe "post to /responses" do
     let!(:question){ FactoryGirl.create(:question) }
     let!(:response){ FactoryGirl.create(:response) }
+    let!(:survey){ FactoryGirl.create(:survey) }
 
     it 'adds a new response to the database' do
       expect{ post('/responses',
                    user_id: response.user_id,
-                   option_id: response.option_id,
-                   question: question) }.to change(Response, :count).by(1)
+                   option_id: response.option_id) }.to change(Response, :count).by(1)
     end
+    # it 'redirects to /survey'
+    #   expect{ post('/responses',
+    #          user_id: response.user_id,
+    #          option_id: response.option_id) }.to be_redirect
+    # end
   end
   
   describe "post to /surveys" do
