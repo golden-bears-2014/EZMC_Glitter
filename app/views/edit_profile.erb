@@ -1,3 +1,6 @@
+
+  <script src="/js/application.js"></script>
+
 <div class= 'nav'>
   <%=erb :_all_surveys_link%>
   <%= erb :_new_survey_link%>
@@ -11,11 +14,11 @@
   Email:<input type="text" value="<%= @user.email %>" name="email"> <br/><br/>
 
   <a href="#" id="update_password">Update Password</a>
-  <div id="new_password">
+  <div id="update_password_fields">
     Old Password:<input type="password" name="password[old]"><br/>
     New Password:<input type="password"  name="password[new">
     Re-type Password:<input type="password"  name="password[repeat_new]">
-  </div>
+  </div><br/><br/>
   <input type="submit" value="Update Profile">
 
 
