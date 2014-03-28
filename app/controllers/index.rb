@@ -36,6 +36,18 @@ get '/users/:id' do
   end
 end
 
+get '/users/:id/edit' do
+  @user = User.find(params[:id])
+  erb :edit_profile
+end
+
+put '/users/:id' do
+  @user = User.find(params[:id])
+  @user.update_attributes(params[:user])
+  redirect "/users/#{@user.id}"
+end
+
+
 
 #user logout
 delete '/sessions/logout' do

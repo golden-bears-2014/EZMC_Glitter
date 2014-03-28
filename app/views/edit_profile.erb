@@ -1,0 +1,13 @@
+<div class= 'nav'>
+  <%=erb :_all_surveys_link%>
+  <%= erb :_new_survey_link%>
+  <%=erb :_logout_button%>
+</div>
+
+<form  action="/users/<%= @user.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <p>Sign Up:</p>
+  Name:<input type="text" value="<%= @user.name %>" name="user[name]"><br/>
+  Email:<input type="text" value="<%= @user.email %>" name="user[email]">
+  <input type="submit" value="Update Profile">
+</form>
