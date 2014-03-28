@@ -18,9 +18,7 @@ gem 'rake'
 
 gem 'shotgun'
 
-gem 'bcrypt-ruby'
-
-gem 'faker'
+gem 'bcrypt'
 
 gem "chartkick"
 
