@@ -43,10 +43,10 @@ end
 
 put '/users/:id' do
   @user = User.find(params[:id])
-  @user.update_attributes(params[:user])
+  @user.update_attributes(name: params[:name], email: params[:email])
+  @user.update_password(params[:password])
   redirect "/users/#{@user.id}"
 end
-
 
 
 #user logout
