@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
 # PostgreSQL driver
 gem 'pg'
@@ -18,7 +18,8 @@ gem 'rake'
 
 gem 'shotgun'
 
-gem 'bcrypt-ruby'
+# gem 'bcrypt-ruby' # name changed to 'bcrypt'
+gem 'bcrypt'
 
 gem 'faker'
 
@@ -29,9 +30,11 @@ group :test do
   gem 'rack-test'
   gem 'rspec'
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :test, :development do
   gem 'factory_girl'
   gem 'faker'
+  gem 'selenium-webdriver'
 end
