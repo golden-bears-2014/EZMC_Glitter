@@ -43,21 +43,16 @@ describe "IndexController" do
   #   it "should add responses to the database" do
 
   describe "post to /responses" do
-    # let!(:response){ FactoryGirl.create(:response) }
-    let!(:survey){ FactoryGirl.create(:survey_with_questions) }
-    let!(:response){ FactoryGirl.create(:question_with_response) }
+    let!(:myuser){ FactoryGirl.create(:user) }
 
     it 'adds a new response to the database' do
-    p "survey: #{survey.questions.last.prompt}"
 
-      expect{ post('/responses',
-                   user_id: response.user_id,
-                   option_id: response.option_id) }.to change(Response, :count).by(1)
+      expect{ 
+        post('/responses', {{"34"=>"on", "41" => "on"}}, 'rack.session' => myuser.id) 
+        }.to change{ Response.count }.by(1)
     end
     it 'redirects to /survey' do
-      expect{ post('/responses',
-             user_id: response.user_id,
-             option_id: response.option_id) }.to be_redirect
+      expect{ post('/responses') }.to be_redirect
     end
   end
   
