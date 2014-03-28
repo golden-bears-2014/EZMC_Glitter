@@ -13,8 +13,14 @@ require 'faker'
 require 'rack/test'
 require 'capybara'
 require 'capybara/rspec'
+require 'selenium-webdriver'
+# Selenium::WebDriver::Firefox::Binary.path='/Applications/Firefox 3.6.app/Contents/MacOS/firefox-bin'
+
+
+
 require 'factory_girl'
 require 'factories'
+
 
 
 RSpec.configure do |config|
@@ -29,4 +35,4 @@ def app
   Sinatra::Application
 end
 
-
+Capybara.app = app
