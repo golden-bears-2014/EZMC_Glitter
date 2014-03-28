@@ -40,12 +40,12 @@ describe "index" do
       end
     end
 
-    describe "post to /responses" do
-      it "should add responses to the database" do
-        option_ids = "71=on&22=on"
-        expect{post('/responses', option_ids)}.to change(Response, :count).by(2)
-      end
-    end
+    # describe "post to /responses" do
+    #   it "should add responses to the database" do
+    #     option_ids = "71=on&22=on"
+    #     expect{post('/responses', option_ids)}.to change(Response, :count).by(2)
+    #   end
+    # end
 
     describe "Creating a survey" do
       it "should increase total number of surveys by 1" do

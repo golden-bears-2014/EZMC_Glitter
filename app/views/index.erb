@@ -2,7 +2,7 @@
   <%=@error%>
 <%end%>
 <h1 id = 'header'>Glitter Space</h1>
-<form  action="/users/new" name="create_account" method="post">
+<form id="create_account" action="/users/new" name="create_account" method="post">
   Sign Up:&nbsp&nbsp
   <input type="text" placeholder="name" name="name">
   <input type="text" placeholder="email" name="email">
@@ -11,7 +11,7 @@
 </form>
 
 
-<form action="/sessions/new" name="login" method="post">
+<form id="sign_up" action="/sessions/new" name="login" method="post">
   Log in
   <input type="text" placeholder="email" name="email">
   <input type="password" placeholder="password" name="password">
