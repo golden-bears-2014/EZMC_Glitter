@@ -1,0 +1,30 @@
+class User < ActiveRecord::Base
+  # Remember to create a migration!
+  include BCrypt
+  validates :email, uniqueness: true
+  validates :name, :email, :password_hash, presence: true
+  has_many :surveys
+  has_many :responses
+  has_many :options, through: :responses
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
+  def self.create(params)
+    user = User.new(params)
+    user.password = params[:password_hash]
+    user.save!
+    return user
+  end
+
+  def login(input_password)
+    self.password == input_password
+  end
+
+end

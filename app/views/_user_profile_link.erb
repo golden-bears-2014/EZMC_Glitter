@@ -1,0 +1,3 @@
+<% if logged_in? %>
+  <a href="/users/<%=User.find(session[:user_id]).id%>"><%=User.find(session[:user_id]).name%>'s Profile</a><br>
+<% end %>

@@ -1,0 +1,30 @@
+<div class= 'nav'>
+  <%=erb :_all_surveys_link%>
+  <%=erb :_user_profile_link%>
+  <%=erb :_logout_button%>
+  <%= erb :_new_survey_link%>
+  <a href="/surveys/<%=@survey.id%>">Take this survey</a>
+</div>
+<h2 class="survey_title"><%= @survey.title %></h2>
+
+<div class="answer_graphs">
+  <% @questions.each do |question| %>
+    <!-- set ruby variables before entering script tag -->
+    <% survey_question = question.prompt.to_json  %>
+    <% survey_options = question.options.map(&:text).to_json %>
+    <% response_count = [] %>
+    <% question.options.each do |option| %>
+      <% response_count << option.responses.count %>
+    <% end %>
+
+    <div class="graphs" id="graph<%= question.id %>"></div>
+
+    <script type="text/javascript">
+      var question_id = <%= question.id %>
+      var question = <%= survey_question %>
+      var choices = <%= survey_options %>
+      var answers = <%= response_count %>
+      formatGraph(question_id, question, choices, answers);
+    </script>
+  <% end %>
+</div>

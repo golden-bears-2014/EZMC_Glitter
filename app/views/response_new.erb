@@ -1,0 +1,26 @@
+<%=erb :_all_surveys_link%>
+<%=erb :_user_profile_link%>
+<%=erb :_logout_button%>
+
+<h3>Respond to this survey</h3>
+<h1><%= @survey.title %></h1>
+<form id="response" name="input" action="/responses" method="post">
+
+<!-- Insert as many questions forms as needed here! -->
+<% @survey.questions.each_with_index do |question, i| %>
+ <div class="question-container" id="question<%=i%>">
+    <h2><%="#{i+1}: #{question.prompt}" %></h2>
+  <ul>
+    <% question.options.each do |option| %>
+      <li><input type="radio" name="<%= option.id %>"><p><%= option.text %></p></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
+  <input type="submit" value="Submit Survey">
+</form>
+
+
+
+

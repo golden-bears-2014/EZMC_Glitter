@@ -1,0 +1,12 @@
+<div class='nav'>
+  <%=erb :_user_profile_link%>
+  <%=erb :_logout_button%>
+<a href="/surveys/new">Create Survey</a>
+</div>
+<h1>Click a survey to take it!</h1>
+<ul>
+  <% @surveys.each do |survey| %>
+    <li><a href="/surveys/<%=survey.id%>" title=""><%= survey.title %></a></li>
+  <% end %>
+</ul>
+

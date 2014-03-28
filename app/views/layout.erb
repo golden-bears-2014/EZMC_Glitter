@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,900italic' rel='stylesheet' type='text/css'>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+  <script src="/js/glitter_mouse.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
+  <link rel="icon" type="image/ico" href="/img/favicon.ico">
+  <title>Glitter Space</title>
+
+</head>
+<body>
+  <div class = "logo">
+    <p>Glitter</p>
+    <p>Space</p>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <footer>
+    glitter makes everything better
+  </footer>
+</body>
+</html>
