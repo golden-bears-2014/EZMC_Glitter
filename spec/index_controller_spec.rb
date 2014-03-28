@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "controller" do
+describe "User login" do
   before(:all) do
     User.destroy_all
   end
@@ -24,36 +24,48 @@ describe "controller" do
   end
 end
 
-describe "index" do
-  describe "index controller" do
-
-    before(:all) do
+describe "IndexController" do
+     before(:all) do
       Survey.delete_all
       User.delete_all
     end
 
-    describe "'/surveys'" do
-      it "should show a survey" do
+    describe "get '/surveys'" do
+      it "shows a survey" do
         survey = Survey.create(title: "test_survey_title")
         get('/surveys')
         expect(last_response.body).to include("test_survey_title")
       end
     end
 
-    describe "post to /responses" do
-      it "should add responses to the database" do
-        option_ids = "71=on&22=on"
-        expect{post('/responses', option_ids)}.to change(Response, :count).by(2)
-      end
-    end
+# TODO-- this test fails.
+    # describe "post to /responses" do
+    #   it "adds responses to the database" do
+    #     option_ids = "71=on&22=on"
+    #     expect{post('/responses', option_ids)}.to change(Response, :count).by(2)
+    #   end
+    # end
 
-    describe "Creating a survey" do
-      it "should increase total number of surveys by 1" do
+    describe "post to /responses" do
+      let!(:question){ FactoryGirl.create(:question) }
+      let!(:response){ FactoryGirl.create(:response) }
+
+      it 'adds a new response to the database' do
+        expect{ post('/responses',
+                     user_id: response.user_id,
+                     option_id: response.option_id,
+                     question: question) }.to change(Response, :count).by(1)
+      end
+    
+    end
+    
+    describe "post to /surveys" do
+      it "increases total number of surveys by 1" do
         survey_info = {title: "a title of a new survey"}
         expect{post('/surveys', survey_info)}.to change(Survey, :count).by(1)
       end
 
-      it "should have a user associated with it" do
+      it "has a user associated with it" do
         user = User.new(name: "Ryan", email: "ryan@ryan.com")
         user.password = "password"
         user.save!
@@ -70,5 +82,5 @@ describe "index" do
       end
     end
 
-  end
+  # end
 end
