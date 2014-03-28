@@ -13,6 +13,14 @@ $(document).ready(function() {
     $('.survey-builder').append(questionTemplate)
     counter += 1
   });
+
+  $('#update_password_fields').hide();
+
+  $('#update_password').on('click', function(e){
+    e.preventDefault;
+    $('#update_password_fields').show();
+  });
+
 }); //end of document ready
 
 var formatGraph = function (question_id, question, choices, answerCount) {
