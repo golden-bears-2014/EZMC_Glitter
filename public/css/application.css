@@ -12,10 +12,18 @@ body{
   font-size: 1.2em;
 }
 
+fieldset { 
+  border: 0;
+  margin-bottom: 1.2em;
+}
+
 input{
   color: #0F0D10;
 }
 
+legend {
+  margin-bottom: .65em;
+}
 
 ul{
   clear:both;
@@ -66,6 +74,21 @@ footer {
   margin: 0 0;
 }
 
+/* login/signup form uses these */
+.horiz input {
+  margin-right: .2em;
+}
+
+.horiz legend:after {
+  content: ':';
+  display: inline;
+}
+
+.question-container input, label {  /*only effects survey create*/
+  float:left;
+  clear:both;
+  margin-bottom: 20px;
+}
 .question-container {
   clear:both;
   background-color: #B9E9F8;
@@ -75,12 +98,6 @@ footer {
   margin: 30px;
   padding: 20px;
   overflow:hidden;
-}
-
-.question-container input, label {  /*only effects survey create*/
-  float:left;
-  clear:both;
-  margin-bottom: 20px;
 }
 
 .question-container .question {

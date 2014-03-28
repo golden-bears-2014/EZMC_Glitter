@@ -40,6 +40,7 @@ describe "index" do
       end
     end
 
+    #This test errors out- Christine.
     # describe "post to /responses" do
     #   it "should add responses to the database" do
     #     option_ids = "71=on&22=on"
