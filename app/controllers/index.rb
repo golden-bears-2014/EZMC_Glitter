@@ -108,4 +108,5 @@ post '/responses' do
   end
   survey_id = Response.last.option.question.survey.id
   redirect  "/surveys/#{survey_id}/results"
+
 end

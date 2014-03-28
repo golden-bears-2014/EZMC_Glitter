@@ -23,6 +23,7 @@ gem 'bcrypt'
 
 gem 'faker'
 
+
 gem "chartkick"
 
 group :test do
