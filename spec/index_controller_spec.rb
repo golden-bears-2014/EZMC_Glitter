@@ -44,11 +44,13 @@ describe "IndexController" do
 
   describe "post to /responses" do
     let!(:myuser){ FactoryGirl.create(:user) }
+    let(:mysurvey){ FactoryGirl.create(:survey) }
+    let(:myquestion){ FactoryGirl.create(:question, survey_id: mysurvey.id)}
+    let(:myoption){ FactoryGirl.create(:option, question_id: myquestion.id)}
 
     it 'adds a new response to the database' do
-
       expect{ 
-        post('/responses', {{"34"=>"on", "41" => "on"}}, 'rack.session' => myuser.id) 
+        post('/responses', { myoption.id.to_s =>"on"}) 
         }.to change{ Response.count }.by(1)
     end
     it 'redirects to /survey' do
